@@ -549,4 +549,7 @@
     <string name="use_smart_clock">Smart Clock</string>
     <string name="use_smart_clock_summary">Show statusbar clock periodically</string>
 
+    <!-- In-call vibration options -->
+    <string name="incall_notifications_vibrate">Vibrate for Notifications</string>
+
 </resources>
