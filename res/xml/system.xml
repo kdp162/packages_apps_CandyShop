@@ -74,11 +74,56 @@
      </PreferenceCategory>
 
         <PreferenceCategory
+            android:id="@+id/animations_category"
             android:key="animations_category"
             android:title="@string/animations_title"
             android:fragment="org.candy.candyshop.fragments.Animations"
             android:icon="@drawable/ic_settings_animations" >
 
-    </PreferenceCategory>
+         <ListPreference
+            android:key="activity_open"
+            android:title="@string/activity_open_title" />
+
+        <ListPreference
+            android:key="activity_close"
+            android:title="@string/activity_close_title" />
+
+        <ListPreference
+            android:key="task_open"
+            android:title="@string/task_open_title" />
+
+        <ListPreference
+            android:key="task_open_behind"
+            android:title="@string/task_open_behind_title" />
+
+        <ListPreference
+            android:key="task_close"
+            android:title="@string/task_close_title" />
+
+        <ListPreference
+            android:key="task_move_to_front"
+            android:title="@string/task_move_to_front_title" />
+
+        <ListPreference
+            android:key="task_move_to_back"
+            android:title="@string/task_move_to_back_title" />
+
+        <ListPreference
+            android:key="wallpaper_open"
+            android:title="@string/wallpaper_open_title" />
+
+        <ListPreference
+            android:key="wallpaper_close"
+            android:title="@string/wallpaper_close_title" />
+
+        <ListPreference
+            android:key="wallpaper_intra_open"
+            android:title="@string/wallpaper_intra_open_title" />
+
+        <ListPreference
+            android:key="wallpaper_intra_close"
+            android:title="@string/wallpaper_intra_close_title" />
+
+        </PreferenceCategory>
 
 </PreferenceScreen>
