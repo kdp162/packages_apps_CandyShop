@@ -16,8 +16,9 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+     <PreferenceScreen 
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:key="system"
         android:layout="@layout/tab" >
 
@@ -69,6 +70,15 @@
             android:title="@string/notification_sound_vib_screen_on_title"
             android:summary="@string/notification_sound_vib_screen_on_summary"
             android:defaultValue="true" />
+
+     </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="animations_category"
+            android:title="@string/animations_title"
+            android:fragment="org.candy.candyshop.fragments.Animations"
+            android:icon="@drawable/ic_settings_animations" >
+
     </PreferenceCategory>
 
 </PreferenceScreen>

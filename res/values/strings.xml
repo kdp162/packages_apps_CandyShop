@@ -44,6 +44,7 @@
     <string name="candyshop_summary_title">Have some Candy, on us!</string>
 
     <!-- Category titles -->
+    <string name="animations_category_title">Animations</string>
     <string name="button_category_title">Buttons</string>
     <string name="navbar_category_title">Software keys</string>
     <string name="hwkeys_category_title">Hardware keys</string>
@@ -66,6 +67,7 @@
     <string name="ime_title">Keyboard and IME Settings</string>
 
     <!-- Fragments -->
+    <string name="animations_title">Animations</string>
     <string name="headset_title">Headset</string>
     <string name="button_title">Volume buttons</string>
     <string name="quicksettings_title">Quick settings</string>
@@ -439,5 +441,12 @@
     <string name="trigger_top_summary">Adjust the vertical postion of the trigger area</string> 
     <string name="trigger_bottom_title">Trigger height</string> 
     <string name="trigger_bottom_summary">Adjust the height of the trigger area</string> 
+
+    <!-- Animations -->
+    <string name="scroll_title" >Scroll</string>
+    <string name="misc_animation_title" >Misc Animation</string>
+    <string name="tile_animation_title" >Tile Animation</string>
+    <string name="list_animation_title" >ListView Animation</string>
+    <string name="system_keyguard_animation_title" >System and Keyguard Animation</string>
 
 </resources>
