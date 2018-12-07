@@ -50,6 +50,12 @@
             android:summary="@string/status_bar_quick_qs_pulldown_summary"
             android:defaultValue="true" />
 
+        <org.candy.candyshop.preference.SystemSettingSwitchPreference
+            android:key="bluetooth_show_battery"
+            android:title="@string/bluetooth_battery_title"
+            android:summary="@string/bluetooth_battery_summary"
+            android:defaultValue="true"/>
+
         <Preference
             android:key="clock_settings"
             android:title="@string/status_bar_clock"
@@ -84,6 +90,7 @@
             <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.tuner.StatusBarIconsTunerActivity" />
+
         </Preference>
 
     </PreferenceCategory>
