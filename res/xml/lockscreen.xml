@@ -80,6 +80,16 @@
            android:title="@string/lockscreen_qs_disabled_title"
            android:summary="@string/lockscreen_qs_disabled_summary"
            android:defaultValue="false" />
+
+        <org.candy.candyshop.preference.SystemSettingSwitchPreference
+           android:key="weather_lockscreen_unit"
+           android:dialogTitle="@string/weather_unit"
+           android:title="@string/weather_unit"
+           android:summary="%s"
+           android:entries="@array/weather_unit_entries"
+           android:entryValues="@array/weather_unit_values"
+           android:defaultValue="0" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

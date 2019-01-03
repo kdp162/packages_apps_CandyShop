@@ -472,4 +472,9 @@
     <string name="show_lte_fourgee_title">4G/LTE network icon</string>
     <string name="show_lte_fourgee_summary">Display the 4G or LTE network icon when available in the statusbar</string>
 
+    <!-- Weather -->
+    <string name="weather_unit">Temperature unit</string>
+    <string name="weather_unit_metric" translatable="false">Celsius</string>
+    <string name="weather_unit_imperial" translatable="false">Fahrenheit</string>
+
 </resources>
