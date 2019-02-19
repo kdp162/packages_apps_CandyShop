@@ -16,7 +16,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/headsup_title" >
+    android:title="@string/heads_up_title" >
 
     <org.candy.support.preferences.GlobalSettingSwitchPreference
         android:key="heads_up_notifications_enabled"
@@ -40,25 +40,25 @@
         android:persistent="false" />
 
     <PreferenceCategory
-            android:title="@string/heads_up_stoplist_title"
+            android:title="@string/heads_up_app_selector"
             android:key="stoplist_applications"
             android:dependency="heads_up_notifications_enabled" >
         <Preference
             android:key="add_stoplist_packages"
             android:icon="@drawable/ic_menu_add"
-            android:title="@string/add_heads_up_package"
-            android:summary="@string/add_heads_up_stoplist_summary" />
+            android:title="@string/heads_up_immunizer_title"
+            android:summary="@string/heads_up_immunizer_summary" />
     </PreferenceCategory>
 
     <PreferenceCategory
-            android:title="@string/heads_up_blacklist_title"
+            android:title="@string/heads_up_app_selector"
             android:key="blacklist_applications"
             android:dependency="heads_up_notifications_enabled" >
         <Preference
             android:key="add_blacklist_packages"
             android:icon="@drawable/ic_menu_add"
-            android:title="@string/add_heads_up_package"
-            android:summary="@string/add_heads_up_blacklist_summary" />
+            android:title="@string/heads_up_blacklister_title"
+            android:summary="@string/heads_up_blacklister_summary" />
     </PreferenceCategory>
 
 </PreferenceScreen>
