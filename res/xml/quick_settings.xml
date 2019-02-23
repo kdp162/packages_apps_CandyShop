@@ -74,7 +74,7 @@
             android:title="@string/qs_show_brightness_buttons_title"
             android:summary="@string/qs_show_brightness_buttons_summary"
             android:dependency="qs_show_brightness"
-            android:defaultValue="true"/>
+            android:defaultValue="true" />
 
     <PreferenceCategory
         android:key="quick_settings_animations"
@@ -140,4 +140,11 @@
             settings:min="3"
             settings:units=""
             android:persistent="false" />
+
+        <Preference
+            android:key="custom_header"
+            android:fragment="com.aquarios.coralreef.fragments.CustomHeaders"
+            android:title="@string/custom_headers_title"
+            android:summary="@string/custom_headers_summary" />
+
 </PreferenceScreen>
