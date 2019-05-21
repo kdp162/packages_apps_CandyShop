@@ -49,7 +49,7 @@
             android:entries="@array/battery_bar_style_entries"
             android:entryValues="@array/battery_bar_style_values" />
 
-        <org.candy.support.preferences.CustomSeekBarPreference
+        <org.candy.candyshop.preference.CustomSeekBarPreference
             android:key="battery_bar_thickness"
             android:title="@string/battery_bar_thickness_title"
             android:max="4"

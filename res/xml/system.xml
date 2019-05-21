@@ -133,9 +133,9 @@
            android:persistent="false" />
 
     <PreferenceCategory
-        android:id="@+id/Wakelocks_category"
-        android:key="Wakelocks_category"
-        android:title="@string/wakelocks_title" />
+        android:id="@+id/app_controls"
+        android:key="app_controls_category"
+        android:title="@string/app_controls_title" />
 
         <Preference 
         android:key="wakelock_blocker" 

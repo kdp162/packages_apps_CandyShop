@@ -58,7 +58,7 @@
     <string name="qs_cat_title">Quick settings panel</string>
     <string name="qs_layout_category_title">QS tile layout</string>
     <string name="qs_options_category_title">QS panel options</string>
-    <string name="battery_style_category_title">Battery icon</string>
+    <string name="battery_style_category_title">Battery options</string>
     <string name="statusbar_options_category_title">Statusbar options</string>
     <string name="statusbar_notifications">Statusbar notifications</string>
     <string name="statusbar_notifications_title">Statusbar ticker and heads-up options</string>
@@ -70,7 +70,7 @@
     <string name="animations_title">Animations</string>
     <string name="power_button_gestures_title">Power button gestures</string>
     <string name="power_button_reboot_menu_title">Power button reboot menu</string>
-    <string name="wakelocks_title">wakelocks</string> 
+    <string name="app_controls_title">App controls</string> 
 
     <!-- Fragments -->
     <string name="headset_title">Headset</string>
@@ -269,7 +269,7 @@
     <string name="volume_rocker_wake_summary">Pressing the volume keys will wake your device</string>
 
     <!-- QS rows and columns -->
-    <string name="qs_rows_columns_title">QS panel tweaks</string>
+    <string name="qs_rows_columns_title">QS panel options</string>
     <string name="qs_rows_portrait_title">Tiles rows on portrait</string>
     <string name="qs_rows_landscape_title">Tiles rows on landscape</string>
     <string name="qs_columns_portrait_title">Tiles columns on portrait</string>
