@@ -57,7 +57,7 @@
 
     <ImageButton
         android:id="@+id/removeButton"
-        style="@android:style/Widget.Holo.Button.Borderless"
+        style="@android:style/Widget.DeviceDefault.ImageButton"
         android:layout_width="40dp"
         android:layout_height="match_parent"
         android:scaleType="fitCenter"
