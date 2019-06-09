@@ -25,10 +25,6 @@
     <!-- Shortcut picker -->
     <dimen name="shortcut_picker_left_padding">70dip</dimen>
 
-    <!-- Gesture Anywhere -->
-    <dimen name="ga_gesture_thumbnail_inset">8dip</dimen>
-    <dimen name="ga_gesture_thumbnail_size">64dip</dimen>
-
     <!-- Recents icon pack support -->
     <dimen name="alert_dialog_padding_material">20dp</dimen>
 
