@@ -60,6 +60,7 @@
             android:key="full_gesture_mode_dt2s"
             android:title="@string/full_gesture_mode_dt2s_title"
             android:summary="@string/full_gesture_mode_dt2s_summary"
+            android:dependency="full_gesture_mode"
             app:keywords="@string/keywords_gesture"
             app:controller="com.android.settings.gestures.SwipeUpPreferenceController"
             app:allowDividerAbove="true" />
