@@ -70,7 +70,8 @@
     <string name="animations_title">Animations</string>
     <string name="power_button_gestures_title">Power button gestures</string>
     <string name="power_button_reboot_menu_title">Power button reboot menu</string>
-    <string name="app_controls_title">App controls</string> 
+    <string name="app_controls_title">App controls</string>
+    <string name="headset_connect_player_category_title">Headset/BT connected options</string>
 
     <!-- Fragments -->
     <string name="headset_title">Headset</string>
@@ -678,14 +679,14 @@
     <string name="less_boring_heads_up_title">Make heads up less annoying</string>
     <string name="less_boring_heads_up_summary">Show heads up only for dialer or messaging app if they are not in foreground</string>
 
-     <!-- Wakelock blocker --> 
-    <string name="wakelock_blocker_title">Wakelock Blocker</string> 
-    <string name="wakelock_blocker_summary">Block system wakelocks</string> 
-    <string name="wakelock_blocker_save">Save</string> 
-    <string name="wakelock_list_header">Available wakelocks</string> 
-    <string name="wakelock_blocker_reload">Reload</string> 
-    <string name="wakelock_blocker_warning_title">Proceed with caution</string> 
-    <string name="wakelock_blocker_warning">Blocking wakelocks have the potential to cause instability, crashes or data loss</string> 
+     <!-- Wakelock blocker -->
+    <string name="wakelock_blocker_title">Wakelock Blocker</string>
+    <string name="wakelock_blocker_summary">Block system wakelocks</string>
+    <string name="wakelock_blocker_save">Save</string>
+    <string name="wakelock_list_header">Available wakelocks</string>
+    <string name="wakelock_blocker_reload">Reload</string>
+    <string name="wakelock_blocker_warning_title">Proceed with caution</string>
+    <string name="wakelock_blocker_warning">Blocking wakelocks have the potential to cause instability, crashes or data loss</string>
 
     <!-- Battery bar -->
     <string name="battery_icon">Battery icon style</string>
@@ -750,4 +751,9 @@
     <string name="heads_up_snooze_10min">10 minutes</string>
     <string name="heads_up_snooze_15min">15 minutes</string>
     <string name="heads_up_snooze_20min">20 minutes</string>
+
+    <!-- Launch music player when headset is connected -->
+    <string name="headset_connect_player_title">Launch music app</string>
+    <string name="headset_connect_player_summary">Launch the default music app when headset is connected</string>
+
 </resources>

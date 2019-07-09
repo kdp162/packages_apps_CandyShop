@@ -143,10 +143,10 @@
         android:key="app_controls_category"
         android:title="@string/app_controls_title" />
 
-        <Preference 
-        android:key="wakelock_blocker" 
-        android:fragment="org.candy.candyshop.fragments.WakeLockBlocker" 
-        android:title="@string/wakelock_blocker_title" 
+        <Preference
+        android:key="wakelock_blocker"
+        android:fragment="org.candy.candyshop.fragments.WakeLockBlocker"
+        android:title="@string/wakelock_blocker_title"
         android:summary="@string/wakelock_blocker_summary" />
 
 </PreferenceScreen>
