@@ -72,18 +72,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:id="@+id/headset_connect_player_category"
-        android:key="headset_connect_player_category"
-        android:title="@string/headset_connect_player_category_title" >
-
-        <org.candy.candyshop.preference.SystemSettingSwitchPreference
-            android:key="headset_connect_player"
-            android:title="@string/headset_connect_player_title"
-            android:summary="@string/headset_connect_player_summary"
-            android:defaultValue="false" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="miscellaneous_category"
         android:title="@string/miscellaneous_category_title" >
 

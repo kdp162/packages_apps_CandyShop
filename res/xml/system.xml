@@ -141,12 +141,19 @@
     <PreferenceCategory
         android:id="@+id/app_controls"
         android:key="app_controls_category"
-        android:title="@string/app_controls_title" />
+        android:title="@string/app_controls_title" >
 
         <Preference
-        android:key="wakelock_blocker"
-        android:fragment="org.candy.candyshop.fragments.WakeLockBlocker"
-        android:title="@string/wakelock_blocker_title"
-        android:summary="@string/wakelock_blocker_summary" />
+            android:key="wakelock_blocker"
+            android:fragment="org.candy.candyshop.fragments.WakeLockBlocker"
+            android:title="@string/wakelock_blocker_title"
+            android:summary="@string/wakelock_blocker_summary" />
+
+        <ListPreference
+            android:key="headset_connect_player"
+            android:title="@string/headset_connect_player_title"
+            android:entries="@array/headset_connect_player_entries"
+            android:entryValues="@array/headset_connect_player_values" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
