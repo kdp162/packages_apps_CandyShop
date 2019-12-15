@@ -51,6 +51,7 @@
     <string name="lockscreen_icons_category_title">Lockscreen bottom shortcuts</string>
     <string name="lockscreen_clock_category_title">Clock and date options</string>
     <string name="lockscreen_other_category_title">Other</string>
+    <string name="lockscreen_weather_category">Weather</string>
     <string name="notifications_category_title">System notifications</string>
     <string name="qs_cat_title">Quick settings panel</string>
     <string name="statusbar_options_category_title">Statusbar options</string>
@@ -140,5 +141,10 @@
     <string name="changelog_title">Changelog</string>
     <string name="changelog_summary">See some of the recent commits.</string>
     <string name="changelog_error">Unable to load changelog</string>
+
+    <!-- Lockscreen Weather -->
+    <string name="weather_unit">Temperature unit</string>
+    <string name="weather_unit_metric" translatable="false">Celsius</string>
+    <string name="weather_unit_imperial" translatable="false">Fahrenheit</string>
 
 </resources>

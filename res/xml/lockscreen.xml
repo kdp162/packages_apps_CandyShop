@@ -47,8 +47,6 @@
         android:summary="@string/double_tap_sleep_lockscreen_summary"
         android:defaultValue="false" />
 
-    </PreferenceCategory>
-
     <!--<PreferenceCategory
         android:key="media_options_category"
         android:title="@string/media_options_category_title" >
@@ -78,5 +76,20 @@
         android:title="@string/lockscreen_clock_category_title" >
 
     </PreferenceCategory>-->
+
+    <PreferenceCategory
+        android:key="lockscreen_weather"
+        android:title="@string/lockscreen_weather_category" />
+
+        <org.candy.candyshop.preference.SystemSettingListPreference
+        android:key="weather_lockscreen_unit"
+        android:dialogTitle="@string/weather_unit"
+        android:title="@string/weather_unit"
+        android:summary="%s"
+        android:entries="@array/weather_unit_entries"
+        android:entryValues="@array/weather_unit_values"
+        android:defaultValue="0" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
