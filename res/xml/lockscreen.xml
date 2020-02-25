@@ -49,10 +49,24 @@
 
     </PreferenceCategory>
 
-    <!--<PreferenceCategory
+    <PreferenceCategory
         android:key="media_options_category"
         android:title="@string/media_options_category_title" >
-    </PreferenceCategory>-->
+
+       <org.candy.candyshop.preference.SystemSettingSwitchPreference
+        android:key="pulse_ambient_light"
+        android:title="@string/pulse_ambient_light_title"
+        android:summary="@string/pulse_ambient_light_summary"
+        android:defaultValue="false" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="pulse_ambient_light_color"
+        android:title="@string/pulse_ambient_light_color_title"
+        android:persistent="false"
+        android:dependency="pulse_ambient_light"
+        settings:defaultColorValue="0xFF3980FF" />
+
+    </PreferenceCategory>
 
     <!--<PreferenceCategory
         android:key="sleep_controls_category"
