@@ -57,6 +57,7 @@ import com.android.settings.search.Indexable;
 import org.candy.candyshop.preference.GlobalSettingMasterSwitchPreference;
 import org.candy.candyshop.preference.PackageListAdapter.PackageItem;
 import org.candy.candyshop.preference.PackageListAdapter;
+import org.candy.candyshop.preference.SystemSettingSeekBarPreference;
 
 
 import java.util.ArrayList;
@@ -71,8 +72,10 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
 
     private static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
     private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
+    private static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
 
     private SwitchPreference mForceExpanded;
+    private SystemSettingSeekBarPreference mEdgeLightDurationPreference;
     private ColorPickerPreference mEdgeLightColorPreference;
 
     @Override
@@ -98,6 +101,13 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
             mEdgeLightColorPreference.setSummary(edgeLightColorHex);
         }
         mEdgeLightColorPreference.setNewPreviewColor(edgeLightColor);
+
+        mEdgeLightDurationPreference = (SystemSettingSeekBarPreference) findPreference(PULSE_AMBIENT_LIGHT_DURATION);
+        mEdgeLightDurationPreference.setOnPreferenceChangeListener(this);
+        int duration = Settings.System.getInt(getContentResolver(),
+                Settings.System.PULSE_AMBIENT_LIGHT_DURATION, 2);
+        mEdgeLightDurationPreference.setValue(duration);
+
         }
 
     @Override
@@ -119,6 +129,11 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.PULSE_AMBIENT_LIGHT_COLOR, intHex);
+            return true;
+        } else if (preference == mEdgeLightDurationPreference) {
+            int value = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.PULSE_AMBIENT_LIGHT_DURATION, value);
             return true;
         }
         return false;
