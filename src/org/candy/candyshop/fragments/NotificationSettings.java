@@ -88,18 +88,17 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
                 Settings.System.FORCE_EXPANDED_NOTIFICATIONS, 0) == 1));
 
         mEdgeLightColorPreference = (ColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
+        mEdgeLightColorPreference.setOnPreferenceChangeListener(this);
         int edgeLightColor = Settings.System.getInt(getContentResolver(),
                 Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF);
-        mEdgeLightColorPreference.setNewPreviewColor(edgeLightColor);
-        mEdgeLightColorPreference.setAlphaSliderEnabled(false);
         String edgeLightColorHex = String.format("#%08x", (0xFF3980FF & edgeLightColor));
         if (edgeLightColorHex.equals("#ff3980ff")) {
             mEdgeLightColorPreference.setSummary(R.string.default_string);
         } else {
             mEdgeLightColorPreference.setSummary(edgeLightColorHex);
         }
-        mEdgeLightColorPreference.setOnPreferenceChangeListener(this);
-    }
+        mEdgeLightColorPreference.setNewPreviewColor(edgeLightColor);
+        }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
