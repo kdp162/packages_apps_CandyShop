@@ -186,4 +186,11 @@
     <string name="hide_lockicon_title">Hide lock icon</string>
     <string name="hide_lockicon_summary">Hide the lock icon on lockscreen</string>
 
+    <!-- Language options - Volume rocker cursor control -->
+    <string name="cursor_section_header">Cursor</string>
+    <string name="volume_key_cursor_control_title">Volume key cursor control</string>
+    <string name="volume_key_cursor_control_off">Disabled</string>
+    <string name="volume_key_cursor_control_on">Volume up/down moves cursor left/right</string>
+    <string name="volume_key_cursor_control_on_reverse">Volume up/down moves cursor right/left</string>
+
 </resources>
