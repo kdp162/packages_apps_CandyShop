@@ -75,6 +75,7 @@
     <!-- Fragments -->
     <string name="notification_settings_title">Notifications settings</string>
     <string name="quicksettings_title">QuickSettings settings</string>
+    <string name="lockscreen_title">Lockscreen Settings</string>
 
     <!-- AboutCandy-->
     <string name="dialog_about_candy_title">About CandyRoms</string>
@@ -189,5 +190,9 @@
     <string name="volume_key_cursor_control_off">Disabled</string>
     <string name="volume_key_cursor_control_on">Volume up/down moves cursor left/right</string>
     <string name="volume_key_cursor_control_on_reverse">Volume up/down moves cursor right/left</string>
+
+    <!-- Lock screen media blur -->
+    <string name="lockscreen_media_blur_title">Media artwork blur level</string>
+
 
 </resources>
