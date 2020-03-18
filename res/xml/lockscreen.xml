@@ -59,8 +59,9 @@
             android:summary="@string/media_art_summary"
             android:defaultValue="true" />
 
-        <org.candy.candyshop.preference.SecureSettingSwitchPreference
+         <org.candy.candyshop.preference.SecureSettingMasterSwitchPreference
             android:key="lockscreen_visualizer_enabled"
+            android:fragment="org.candy.candyshop.fragments.Visualizer"
             android:title="@string/lockscreen_visualizer_enable"
             android:summary="@string/lockscreen_visualizer_enable_summary"
             android:defaultValue="false" />
