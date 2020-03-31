@@ -26,11 +26,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserHandle;
 import androidx.preference.ListPreference;
+import androidx.preference.SwitchPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceFragment;
-import androidx.preference.PreferenceManager;
-import androidx.preference.SwitchPreference;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
@@ -39,17 +37,21 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
+import org.candy.candyshop.preference.CustomSeekBarPreference;
 import org.candy.candyshop.preference.SystemSettingSwitchPreference;
-import com.android.internal.logging.nano.MetricsProto;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Date;
 
- public class ClockDateSettings extends SettingsPreferenceFragment implements
-	OnPreferenceChangeListener  {
+public class ClockDateSettings extends SettingsPreferenceFragment
+        implements Preference.OnPreferenceChangeListener {
 
     private static final String STATUS_BAR_CLOCK = "status_bar_clock";
     private static final String STATUS_BAR_CLOCK_SECONDS = "status_bar_clock_seconds";
@@ -58,9 +60,14 @@ import java.util.Date;
     private static final String STATUS_BAR_CLOCK_DATE_DISPLAY = "clock_date_display";
     private static final String STATUS_BAR_CLOCK_DATE_STYLE = "clock_date_style";
     private static final String STATUS_BAR_CLOCK_DATE_FORMAT = "clock_date_format";
+    private static final String STATUS_BAR_CLOCK_COLOR = "status_bar_clock_color";
+    private static final String STATUS_BAR_CLOCK_SIZE  = "status_bar_clock_size";
+    private static final String STATUS_BAR_CLOCK_FONT_STYLE  = "status_bar_clock_font_style";
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
     private static final int CUSTOM_CLOCK_DATE_FORMAT_INDEX = 18;
+
+    static final int DEFAULT_STATUS_CLOCK_COLOR = 0xffffffff;
 
     private SystemSettingSwitchPreference mStatusBarClockShow;
     private SystemSettingSwitchPreference mStatusBarSecondsShow;
@@ -69,15 +76,21 @@ import java.util.Date;
     private ListPreference mClockDateDisplay;
     private ListPreference mClockDateStyle;
     private ListPreference mClockDateFormat;
+    private ColorPickerPreference mClockColor;
+    private CustomSeekBarPreference mClockSize;
+    private ListPreference mClockFontStyle;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.clock_date_settings);
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
-    // clock settings
+        int intColor;
+        String hexColor;
+
+	// clock settings
         mStatusBarClockShow = (SystemSettingSwitchPreference) findPreference(STATUS_BAR_CLOCK);
         mStatusBarSecondsShow = (SystemSettingSwitchPreference) findPreference(STATUS_BAR_CLOCK_SECONDS);
         mStatusBarClock = (ListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
@@ -98,6 +111,26 @@ import java.util.Date;
         mStatusBarClock.setValue(String.valueOf(clockStyle));
         mStatusBarClock.setSummary(mStatusBarClock.getEntry());
         mStatusBarClock.setOnPreferenceChangeListener(this);
+
+        mClockColor = (ColorPickerPreference) findPreference(STATUS_BAR_CLOCK_COLOR);
+            mClockColor.setOnPreferenceChangeListener(this);
+            intColor = Settings.System.getInt(resolver,
+                    Settings.System.STATUS_BAR_CLOCK_COLOR, DEFAULT_STATUS_CLOCK_COLOR);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mClockColor.setSummary(hexColor);
+            mClockColor.setNewPreviewColor(intColor);
+
+        mClockSize = (CustomSeekBarPreference) findPreference(STATUS_BAR_CLOCK_SIZE);
+        int clockSize = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_CLOCK_SIZE, 14);
+        mClockSize.setValue(clockSize / 1);
+        mClockSize.setOnPreferenceChangeListener(this);
+
+        mClockFontStyle = (ListPreference) findPreference(STATUS_BAR_CLOCK_FONT_STYLE);
+        int showClockFont = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_CLOCK_FONT_STYLE, 0);
+        mClockFontStyle.setValue(String.valueOf(showClockFont));
+        mClockFontStyle.setOnPreferenceChangeListener(this);
 
         if (DateFormat.is24HourFormat(getActivity())) {
             mStatusBarAmPm.setEnabled(false);
@@ -135,21 +168,24 @@ import java.util.Date;
         } else {
             mClockDateFormat.setValue(value);
         }
-         parseClockDateFormats();
+        parseClockDateFormats();
+
     }
 
-     @Override
+    @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.CANDYSHOP;
     }
 
-     @Override
+    @Override
     public void onResume() {
         super.onResume();
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         AlertDialog dialog;
+	ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mStatusBarClockShow) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
@@ -173,6 +209,26 @@ import java.util.Date;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_AM_PM_STYLE, statusBarAmPm);
             mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntries()[index]);
+            return true;
+        } else if (preference == mClockColor) {
+                String hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(newValue)));
+                preference.setSummary(hex);
+                int intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(resolver,
+                        Settings.System.STATUS_BAR_CLOCK_COLOR, intHex);
+                return true;
+        }  else if (preference == mClockSize) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(resolver,
+                    Settings.System.STATUS_BAR_CLOCK_SIZE, width);
+            return true;
+        }  else if (preference == mClockFontStyle) {
+            int showClockFont = Integer.valueOf((String) newValue);
+            int index = mClockFontStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.
+                STATUS_BAR_CLOCK_FONT_STYLE, showClockFont);
+            mClockFontStyle.setSummary(mClockFontStyle.getEntries()[index]);
             return true;
         } else if (preference == mClockDateDisplay) {
             int clockDateDisplay = Integer.valueOf((String) newValue);
@@ -199,12 +255,12 @@ import java.util.Date;
         } else if (preference == mClockDateFormat) {
             int index = mClockDateFormat.findIndexOfValue((String) newValue);
 
-             if (index == CUSTOM_CLOCK_DATE_FORMAT_INDEX) {
+            if (index == CUSTOM_CLOCK_DATE_FORMAT_INDEX) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
                 alert.setTitle(R.string.clock_date_string_edittext_title);
                 alert.setMessage(R.string.clock_date_string_edittext_summary);
 
-                 final EditText input = new EditText(getActivity());
+                final EditText input = new EditText(getActivity());
                 String oldText = Settings.System.getString(
                     getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_DATE_FORMAT);
@@ -221,7 +277,7 @@ import java.util.Date;
                         }
                         Settings.System.putString(getActivity().getContentResolver(),
                             Settings.System.STATUSBAR_CLOCK_DATE_FORMAT, value);
-                         return;
+                        return;
                     }
                 });
 
@@ -240,8 +296,8 @@ import java.util.Date;
                 }
             }
             return true;
-      }
-      return false;
+      	}
+        return false;
     }
 
     private void parseClockDateFormats() {
@@ -267,9 +323,8 @@ import java.util.Date;
                     newDate = dateString.toString();
                 }
 
-                 parsedDateEntries[i] = newDate;
+                parsedDateEntries[i] = newDate;
             }
-
         }
         mClockDateFormat.setEntries(parsedDateEntries);
     }
