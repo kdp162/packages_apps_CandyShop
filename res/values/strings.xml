@@ -54,6 +54,7 @@
     <string name="system_notifications_category_title">System notifications</string>
     <string name="quicksettings_layout_category_title">QuickSettings rows and columns</string>
     <string name="quicksettings_options_category_title">QuickSettings options</string>
+    <string name="qs_animations_category_title">QuickSettings Animation Settings</string>
     <string name="statusbar_gestures_category_title">Statusbar gestures</string>
     <string name="statusbar_options_category_title">Statusbar options</string>
     <string name="statusbar_notifications">Statusbar notifications</string>
@@ -79,6 +80,7 @@
     <string name="quicksettings_title">QuickSettings settings</string>
     <string name="lockscreenholder_title">LockScreen Holder</string>
     <string name="lockscreen_visualizer_title">LockScreen Visualizer</string>
+    <string name="quicksettingsanimations_title">QuickSettings Animation settings</string>
 
     <!-- AboutCandy-->
     <string name="dialog_about_candy_title">About CandyRoms</string>
@@ -316,5 +318,20 @@
     <string name="lock_clock_font_burnstown">Burnstown</string>
     <string name="lock_clock_font_dumbledor">Dumbledor</string>
     <string name="lock_clock_font_phantombold">PhantomBold</string>
+
+    <!-- Tiles animation style  -->
+    <string name="qs_animations_title">Animations</string>
+    <string name="qs_animations_summary">Animations Summary</string>
+    <string name="qs_tile_animation_title">Animations</string>  
+    <string name="qs_tile_animation_style_title">Animation style</string>
+    <string name="qs_tile_animation_duration_title">Animation duration</string>
+    <string name="qs_tile_animation_style_off">no animation</string>
+    <string name="qs_tile_animation_style_flip">flip</string>
+    <string name="qs_tile_animation_style_rotate">rotate</string>
+    <string name="qs_tile_animation_duration_low">low</string>
+    <string name="qs_tile_animation_duration_default">default</string>
+    <string name="qs_tile_animation_duration_fast">fast</string>
+    <string name="qs_set_animation_style">Animation is set to %1$s</string>
+    <string name="qs_set_animation_duration">Animation duration is set to %1$s</string>
 
 </resources>
